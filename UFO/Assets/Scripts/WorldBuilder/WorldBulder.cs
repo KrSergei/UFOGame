@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldBulder : MonoBehaviour
 {
     [SerializeField]
-    private float speedGame = 0f;       //скорость игры. Передд началом игры равна 0;
+    private float speedGame = 0f;       //скорость игры. Перед началом игры равна 0;
 
     //Установка масштаба времени перед началом игры в 0;
     private void Awake()

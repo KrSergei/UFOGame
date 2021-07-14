@@ -8,11 +8,12 @@ TagManager:
   - Enemy
   - Barrier
   - Start
+  - Lamp
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Destructible
   - Water
   - UI
   - 

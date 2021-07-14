@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +6,7 @@ public class UFOController : MonoBehaviour
 {
     public Rigidbody LeftLegRB,
                      RightLegRB;
-    public SceneLoader SceneLoader;
+    private SceneLoader SceneLoader;
     public UIManager UIManager;
     public WorldBulder WorldBulder;
 
@@ -25,11 +24,11 @@ public class UFOController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.R))
         {
-            SceneLoader.LoadScene(0);
+            SceneLoader.GetComponent<SceneLoader>().RestartScene();
         }
 
         if (Input.GetKey(KeyCode.A))
@@ -51,21 +50,6 @@ public class UFOController : MonoBehaviour
             //Применение ускорения вверх для правого двигателя
             RightLegRB.AddRelativeForce(Vector3.up * Power);
         }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            //Применение ускорения вверх для левого двигателя
-            LeftLegRB.AddRelativeForce(Vector3.forward * Power);
-            //Применение ускорения вверх для правого двигателя
-            RightLegRB.AddRelativeForce(Vector3.forward * Power);
-        }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            //Применение ускорения вперед
-            LeftLegRB.AddRelativeForce(- Vector3.forward * Power);
-            //Применение ускорения назад
-            RightLegRB.AddRelativeForce( - Vector3.forward * Power);
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -73,18 +57,17 @@ public class UFOController : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //Перезагрузка сцены
-            //UIManager.GetComponent<SceneLoader>().RestartScene();
-            SceneLoader.RestartScene();
+            UIManager.GetComponent<SceneLoader>().RestartScene();
+            //SceneLoader.RestartScene();
         }
 
         if (collision.gameObject.tag == "Finish")
         {
             //Активация метода для загрузки нужного меню
             UIManager.SetActiveMenuAfterPassedLvl();
-            //UIManager.GetComponent<UIManager>().SetActiveMenuAfterPassedLvl();
             //Установка скорости игры в 0
-            WorldBulder.SetSpeedGame(0f);
-            //WorldBulder.GetComponent<WorldBulder>().SetSpeedGame(0f);
+            //WorldBulder.SetSpeedGame(0f);
+            WorldBulder.GetComponent<WorldBulder>().SetSpeedGame(0f);
         }
     }
 }
