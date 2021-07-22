@@ -5,13 +5,14 @@ public class UIManager : MonoBehaviour
 {
     /* Сокращение в начале имени методов
      * BA - button activity - реакция на нажатие кнопки
-     */ 
+     */
 
     /// <summary>
     /// Массив UI
     /// canvas[0] - Start menu
     /// canvas[1] - Next level menu
     /// canvas[2] - Congratulation menu
+    /// canvas[3] - Playing menu
     /// </summary>
     public Canvas[] canvas;
 
@@ -46,6 +47,7 @@ public class UIManager : MonoBehaviour
         WorldBulder.GetComponent<WorldBulder>().SetSpeedGame(1f);
         //Отключение меню старт
         ChangeCurrentUIActivity(canvas[0].gameObject);
+        ChangeCurrentUIActivity(canvas[3].gameObject);
     }
 
     #region Next level menu
