@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UFOController : MonoBehaviour
@@ -13,20 +11,27 @@ public class UFOController : MonoBehaviour
     public float MaxAltitude;                       //Максимальная высота, на которой отключаются двигатели
     public float AltitudeDecreasePowerEngine = 5f;  //Высота, с которой начинается уменьшение коэффициента мощности двигателя
 
+    public Transform directionArrow;
+    Quaternion quaternionArrow;
+
+
     [SerializeField]
     private float power = 12f;                      //Сила воздействия
+    public float Power { get => power; set => power = value; }
+
     private float curretnRatioPower = 1f;           //Текущий коэффициент мощности
     private Vector3 currentPowerLeftEngine;         //Текущая мощность левого двигателя
     private Vector3 currentPowerRightEngine;        //Текущая мощность правого двигателя
     private SceneLoader SceneLoader;
-
-    public float Power { get => power; set => power = value; }
+    
 
     void Start()
     {
         SceneLoader = FindObjectOfType<SceneLoader>();
         UIManager = FindObjectOfType<UIManager>();
         WorldBulder = FindObjectOfType<WorldBulder>();
+
+        quaternionArrow = directionArrow.rotation;
     }
 
     void FixedUpdate()
@@ -73,6 +78,7 @@ public class UFOController : MonoBehaviour
 
         LeftLegRB.AddRelativeForce(currentPowerLeftEngine * curretnRatioPower);
         RightLegRB.AddRelativeForce(currentPowerRightEngine * curretnRatioPower);
+        //GetDirection();
     }
 
     /// <summary>
@@ -134,6 +140,15 @@ public class UFOController : MonoBehaviour
     {
         double result = Math.Round(value, 1); 
         return (float)result;
+    }
+
+    /// <summary>
+    /// Возвращает текущую скорость по оси Х 
+    /// </summary>
+    /// <returns></returns>
+    public float GetVelosityX()
+    {
+        return gameObject.GetComponent<Rigidbody>().velocity.x;
     }
 
     private void OnCollisionEnter(Collision collision)
