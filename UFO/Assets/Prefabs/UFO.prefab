@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 911179697}
   m_Layer: 0
   m_Name: BottomLight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,10 +484,10 @@ GameObject:
   - component: {fileID: 5564683324669763009}
   - component: {fileID: 1217957918}
   - component: {fileID: 843453357}
-  - component: {fileID: 843453360}
+  - component: {fileID: 435285241}
   m_Layer: 0
   m_Name: RightLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,7 +564,7 @@ FixedJoint:
   m_GameObject: {fileID: 4780481535441927924}
   m_ConnectedBody: {fileID: 1767794417}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
+  m_BreakForce: 150
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -586,21 +586,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!138 &843453360
-FixedJoint:
+--- !u!64 &435285241
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4780481535441927924}
-  m_ConnectedBody: {fileID: 1767794417}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4948805746347260419
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,6 +612,10 @@ GameObject:
   - component: {fileID: 1767794417}
   - component: {fileID: 1767794416}
   - component: {fileID: 1767794418}
+  - component: {fileID: 1767794415}
+  - component: {fileID: 1767794419}
+  - component: {fileID: 1767794420}
+  - component: {fileID: 1767794422}
   m_Layer: 0
   m_Name: UFO
   m_TagString: Player
@@ -668,8 +671,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4, y: 1.7, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.287208, y: 0.04866445, z: 1.7852052}
+  m_Center: {x: 0.03268504, y: -0.8256678, z: 0.00361377}
 --- !u!114 &1767794418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,11 +687,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftLegRB: {fileID: 1519269557}
   RightLegRB: {fileID: 843453357}
-  SceneLoader: {fileID: 0}
   UIManager: {fileID: 0}
   WorldBulder: {fileID: 0}
   rotationMultipler: 0.5
-  Power: 20
+  MaxAltitude: 90
+  AltitudeDecreasePowerEngine: 80
+  isAlive: 1
+  power: 30
+--- !u!114 &1767794415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948805746347260419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64725d4705b65b042b86e1224aba6e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedRotationArrow: 3
+  arrowDirection: {fileID: 0}
+--- !u!114 &1767794419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948805746347260419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1c01958b56777419274bb3365718c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  altitudeValueText: {fileID: 0}
+--- !u!114 &1767794420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948805746347260419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4177581ce62034eb2c8aff4c113b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightEngineSlider: {fileID: 0}
+  leftEngineSlider: {fileID: 0}
+  rightEnginePowerText: {fileID: 0}
+  leftEnginePowerText: {fileID: 0}
+--- !u!114 &1767794422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948805746347260419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e4e6747e07a78c45ae35e7a1470cdbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  separableComponenOfBody:
+  - {fileID: 5868486389802800584}
+  - {fileID: 5175125775612822094}
+  - {fileID: 8812485968281852941}
+  - {fileID: 4780481535441927924}
 --- !u!1 &5175125775612822094
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,9 +766,12 @@ GameObject:
   - component: {fileID: 1625365122811354683}
   - component: {fileID: 9046192166940145301}
   - component: {fileID: 4444921588152074794}
+  - component: {fileID: 1276193015}
+  - component: {fileID: 1276193016}
+  - component: {fileID: 1276193012}
   m_Layer: 0
   m_Name: Cabin
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -770,6 +839,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &1276193015
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175125775612822094}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!138 &1276193016
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175125775612822094}
+  m_ConnectedBody: {fileID: 1767794417}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: 150
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!64 &1276193012
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175125775612822094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5868486389802800584
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,9 +895,12 @@ GameObject:
   - component: {fileID: 5237294292928625989}
   - component: {fileID: 7166023540013288066}
   - component: {fileID: 9141713965833446433}
+  - component: {fileID: 14792832}
+  - component: {fileID: 14792833}
+  - component: {fileID: 14792829}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -851,6 +968,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &14792832
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868486389802800584}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!138 &14792833
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868486389802800584}
+  m_ConnectedBody: {fileID: 1767794417}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: 150
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!64 &14792829
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868486389802800584}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &8812485968281852941
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,10 +1026,10 @@ GameObject:
   - component: {fileID: 5956524146525242968}
   - component: {fileID: 1217957920}
   - component: {fileID: 1519269557}
-  - component: {fileID: 1519269560}
+  - component: {fileID: 190700268}
   m_Layer: 0
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -944,7 +1106,7 @@ FixedJoint:
   m_GameObject: {fileID: 8812485968281852941}
   m_ConnectedBody: {fileID: 1767794417}
   m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
+  m_BreakForce: 150
   m_BreakTorque: Infinity
   m_EnableCollision: 0
   m_EnablePreprocessing: 1
@@ -966,18 +1128,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!138 &1519269560
-FixedJoint:
+--- !u!64 &190700268
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8812485968281852941}
-  m_ConnectedBody: {fileID: 1767794417}
-  m_ConnectedArticulationBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_EnableCollision: 0
-  m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}

@@ -11,9 +11,8 @@ public class UFOController : MonoBehaviour
     public float MaxAltitude;                       //Максимальная высота, на которой отключаются двигатели
     public float AltitudeDecreasePowerEngine = 5f;  //Высота, с которой начинается уменьшение коэффициента мощности двигателя
 
-    public Transform directionArrow;
-    Quaternion quaternionArrow;
-
+    [Header("Flag is Alive"), SerializeField]
+    private bool isAlive = true;
 
     [SerializeField]
     private float power = 12f;                      //Сила воздействия
@@ -30,8 +29,6 @@ public class UFOController : MonoBehaviour
         SceneLoader = FindObjectOfType<SceneLoader>();
         UIManager = FindObjectOfType<UIManager>();
         WorldBulder = FindObjectOfType<WorldBulder>();
-
-        quaternionArrow = directionArrow.rotation;
     }
 
     void FixedUpdate()
@@ -42,43 +39,50 @@ public class UFOController : MonoBehaviour
         currentPowerLeftEngine = Vector3.zero;
         currentPowerRightEngine = Vector3.zero;
 
-        //Проверка на высоту, и уменьшение коэффициента мощности в зависимости от высоты
-        if (GetCurrentAltitude() >= AltitudeDecreasePowerEngine)
-        {
-            curretnRatioPower = GetCurrentRatioPower();
-        }
-        else
-        {
-            curretnRatioPower = 1f;
-        }
-
         if (Input.GetKey(KeyCode.R))
         {
             SceneLoader.GetComponent<SceneLoader>().RestartScene();
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (isAlive)
         {
-            //Добавление мощности левого сопла - 80%, правого - 100%
-            currentPowerLeftEngine = minForce;
-            currentPowerRightEngine = maxForce;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            //Добавление мощности левого сопла - 100%, правого - 80%
-            currentPowerLeftEngine = maxForce;
-            currentPowerRightEngine = minForce;
-        }
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            //Применение ускорения вверх
-            currentPowerLeftEngine = maxForce;
-            currentPowerRightEngine = maxForce;
-        } 
+            //Проверка на высоту, и уменьшение коэффициента мощности в зависимости от высоты
+            if (GetCurrentAltitude() >= AltitudeDecreasePowerEngine)
+            {
+                curretnRatioPower = GetCurrentRatioPower();
+            }
+            else
+            {
+                curretnRatioPower = 1f;
+            }
 
-        LeftLegRB.AddRelativeForce(currentPowerLeftEngine * curretnRatioPower);
-        RightLegRB.AddRelativeForce(currentPowerRightEngine * curretnRatioPower);
-        //GetDirection();
+            if (Input.GetMouseButtonDown(1))
+            {
+                GetComponent<UFODestructionBody>().DestoyBody();
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                //Добавление мощности левого сопла - 80%, правого - 100%
+                currentPowerLeftEngine = minForce;
+                currentPowerRightEngine = maxForce;
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                //Добавление мощности левого сопла - 100%, правого - 80%
+                currentPowerLeftEngine = maxForce;
+                currentPowerRightEngine = minForce;
+            }
+            else if (Input.GetKey(KeyCode.Space))
+            {
+                //Применение ускорения вверх
+                currentPowerLeftEngine = maxForce;
+                currentPowerRightEngine = maxForce;
+            }
+
+            LeftLegRB.AddRelativeForce(currentPowerLeftEngine * curretnRatioPower);
+            RightLegRB.AddRelativeForce(currentPowerRightEngine * curretnRatioPower);
+        }
     }
 
     /// <summary>
@@ -155,9 +159,10 @@ public class UFOController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            isAlive = false;
             //Перезагрузка сцены
-            UIManager.GetComponent<SceneLoader>().RestartScene();
-            //SceneLoader.RestartScene();
+            //UIManager.GetComponent<SceneLoader>().RestartScene();
+            GetComponent<UFODestructionBody>().DestoyBody();
         }
 
         if (collision.gameObject.tag == "Finish")
