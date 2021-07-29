@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UFODestructionBody : MonoBehaviour
@@ -14,13 +13,10 @@ public class UFODestructionBody : MonoBehaviour
         StartCoroutine(SeparateBody());
     }
 
-
     IEnumerator SeparateBody()
     {
         //Уменьшение размеров коллайдера
         GetComponent<BoxCollider>().size = sizeColliderWhenDestroed;
-        //Получение текущей скорости объекта
-        Vector3 currentVelocity = gameObject.GetComponent<Rigidbody>().velocity;
 
         //Имитация разрушения объекта
         for (int i = 0; i < separableComponenOfBody.Length; i++)
@@ -31,10 +27,6 @@ public class UFODestructionBody : MonoBehaviour
             //Включение коллайдеров
             if (separableComponenOfBody[i].GetComponent<MeshCollider>() != null)
                 separableComponenOfBody[i].GetComponent<MeshCollider>().isTrigger = false;
-
-            //Задание скорости
-            separableComponenOfBody[i].GetComponent<Rigidbody>().velocity = currentVelocity;
-
             yield return null;
         }
     }
