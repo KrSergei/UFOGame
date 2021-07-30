@@ -163,6 +163,8 @@ public class UFOController : MonoBehaviour
             //Перезагрузка сцены
             //UIManager.GetComponent<SceneLoader>().RestartScene();
             GetComponent<UFODestructionBody>().DestoyBody();
+            GetComponent<UFOActivationExploisionEffect>().ActivationExploision();
+
         }
 
         if (collision.gameObject.tag == "Finish")
