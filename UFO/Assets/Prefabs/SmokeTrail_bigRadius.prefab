@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6584792813668480679}
   - component: {fileID: 6584792813668480676}
   m_Layer: 0
-  m_Name: SmokeTrail
+  m_Name: SmokeTrail_bigRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4770,7 +4770,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 698a8134f4ebbbd4e848648685f68067, type: 2}
+  - {fileID: 2100000, guid: 98bac8550ce79404ba73829f4e62b643, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

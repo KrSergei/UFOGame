@@ -8,6 +8,11 @@ public class UFODestructionBody : MonoBehaviour
     [Header("Size collider destroyed"), SerializeField]
     private Vector3 sizeColliderWhenDestroed;   //Размер коллайдера при столкновении с
 
+    [SerializeField]
+    private float explosionForce; //Сила взрыва
+    [SerializeField]
+    private float explosionRadius; //Радиус взрыва
+
     public void DestoyBody()
     {
         StartCoroutine(SeparateBody());
@@ -27,6 +32,15 @@ public class UFODestructionBody : MonoBehaviour
             //Включение коллайдеров
             if (separableComponenOfBody[i].GetComponent<MeshCollider>() != null)
                 separableComponenOfBody[i].GetComponent<MeshCollider>().isTrigger = false;
+            yield return null;
+        }
+
+        //Получение компонента Rigidbody и придание ему силы взрыва
+        for (int i = 0; i < separableComponenOfBody.Length; i++)
+        {
+            Rigidbody rb = separableComponenOfBody[i].GetComponent<Rigidbody>();
+            if (rb != null)
+                rb.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             yield return null;
         }
     }
