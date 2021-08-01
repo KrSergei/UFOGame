@@ -1165,6 +1165,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7532602334672671674}
     m_Modifications:
+    - target: {fileID: 301163670, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1101660655, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1616281584, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010490752, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137466433, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2144029780, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 977911307481373008, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4263406244113576782, guid: bb78b8048f5cfa043b7775bcc09aca12, type: 3}
       propertyPath: looping
       value: 0
