@@ -7,12 +7,18 @@ public class UFOController : MonoBehaviour
     public Rigidbody LeftLegRB, RightLegRB;    
     public UIManager UIManager;
     public WorldBulder WorldBulder;
+    public UFOAudioControl audioControl;
     public float rotationMultipler = 0.8f;          //Показатель уменьшения силы двигателя при повороте       
     public float MaxAltitude;                       //Максимальная высота, на которой отключаются двигатели
     public float AltitudeDecreasePowerEngine = 5f;  //Высота, с которой начинается уменьшение коэффициента мощности двигателя
 
+    Rigidbody mainRb;
+
     [Header("Flag is Alive"), SerializeField]
     private bool isAlive = true;
+
+    public string maneAudioSourceEngineEffect = "Engine";
+    public string maneEAudioSourcexploisionEffect = "Exploision";
 
     [SerializeField]
     private float power = 12f;                      //Сила воздействия
@@ -22,13 +28,14 @@ public class UFOController : MonoBehaviour
     private Vector3 currentPowerLeftEngine;         //Текущая мощность левого двигателя
     private Vector3 currentPowerRightEngine;        //Текущая мощность правого двигателя
     private SceneLoader SceneLoader;
-    
 
     void Start()
     {
+        mainRb = GetComponent<Rigidbody>();
         SceneLoader = FindObjectOfType<SceneLoader>();
         UIManager = FindObjectOfType<UIManager>();
         WorldBulder = FindObjectOfType<WorldBulder>();
+        audioControl = GetComponent<UFOAudioControl>();
     }
 
     void FixedUpdate()
@@ -79,9 +86,18 @@ public class UFOController : MonoBehaviour
                 currentPowerLeftEngine = maxForce;
                 currentPowerRightEngine = maxForce;
             }
+            else
+                OffSoundEffect(maneAudioSourceEngineEffect);
 
             LeftLegRB.AddRelativeForce(currentPowerLeftEngine * curretnRatioPower);
             RightLegRB.AddRelativeForce(currentPowerRightEngine * curretnRatioPower);
+
+            if (currentPowerLeftEngine.y + currentPowerRightEngine.y > 0)
+                OnSoundEffect(maneAudioSourceEngineEffect);
+        }
+        else
+        {
+            OffSoundEffect(maneAudioSourceEngineEffect);
         }
     }
 
@@ -110,6 +126,16 @@ public class UFOController : MonoBehaviour
     public float GetRightEnginePower()
     {
         return RoundingUpValueForHUD(currentPowerRightEngine.y * curretnRatioPower);
+    }
+
+    public void OnSoundEffect(string nameEffect)
+    {
+        audioControl.PlaySound(nameEffect);
+    }
+
+    public void OffSoundEffect(string nameEffect)
+    {
+        audioControl.PauseSound(nameEffect);
     }
 
     /// <summary>
@@ -152,19 +178,26 @@ public class UFOController : MonoBehaviour
     /// <returns></returns>
     public float GetVelosityX()
     {
-        return gameObject.GetComponent<Rigidbody>().velocity.x;
+        return mainRb.velocity.x;
+    }
+
+    public float GetVelosityY()
+    {
+        return mainRb.velocity.y;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            if (isAlive)
+                OnSoundEffect(maneEAudioSourcexploisionEffect);
             isAlive = false;
             //Перезагрузка сцены
             //UIManager.GetComponent<SceneLoader>().RestartScene();
             GetComponent<UFODestructionBody>().DestoyBody();
             GetComponent<UFOActivationExploisionEffect>().ActivationExploision();
-
+            
         }
 
         if (collision.gameObject.tag == "Finish")
