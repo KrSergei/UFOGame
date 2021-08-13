@@ -30,8 +30,8 @@ public class UFODestructionBody : MonoBehaviour
             if (separableComponenOfBody[i].GetComponent<FixedJoint>() != null)
                 separableComponenOfBody[i].GetComponent<FixedJoint>().breakForce = 0f;
             //¬ключение коллайдеров
-            if (separableComponenOfBody[i].GetComponent<MeshCollider>() != null)
-                separableComponenOfBody[i].GetComponent<MeshCollider>().isTrigger = false;
+            if (separableComponenOfBody[i].GetComponent<Collider>() != null)
+                separableComponenOfBody[i].GetComponent<Collider>().isTrigger = false;
             yield return null;
         }
 
