@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5080431777357175482
 Transform:
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3f460b2b222356b469a48418fa4ffc40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,7 +109,7 @@ GameObject:
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5080431777571097433
 Transform:
@@ -139,6 +139,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5080431777571097433}
     m_Modifications:
+    - target: {fileID: 1248250230361239365, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809384644591148149, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517316869066011975, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7897151461304778827, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -187,6 +199,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LampBillboard
       objectReference: {fileID: 0}
+    - target: {fileID: 8155704719390336622, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052888027510608547, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
 --- !u!4 &7947480640866365051 stripped
@@ -201,6 +221,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5080431777571097433}
     m_Modifications:
+    - target: {fileID: 1248250230361239365, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809384644591148149, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517316869066011975, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7897151461304778827, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -248,6 +280,14 @@ PrefabInstance:
     - target: {fileID: 8155704719390336622, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
       propertyPath: m_Name
       value: LampBillboard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155704719390336622, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052888027510608547, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
@@ -315,6 +355,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BillboardColumn
       objectReference: {fileID: 0}
+    - target: {fileID: 7634730208891383941, guid: 57560d7664877ab45b12d4cd05021cab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 940178721994820439, guid: 57560d7664877ab45b12d4cd05021cab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 57560d7664877ab45b12d4cd05021cab, type: 3}
@@ -333,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 274573572619231014, guid: 931aeccab4474074d8d0e97dff20c4e0, type: 3}
       propertyPath: m_Name
       value: BillboardFundament
+      objectReference: {fileID: 0}
+    - target: {fileID: 274573572619231014, guid: 931aeccab4474074d8d0e97dff20c4e0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4396406169861389974, guid: 931aeccab4474074d8d0e97dff20c4e0, type: 3}
       propertyPath: m_RootOrder
@@ -392,6 +440,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5080431777571097433}
     m_Modifications:
+    - target: {fileID: 1248250230361239365, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809384644591148149, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517316869066011975, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7897151461304778827, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -440,6 +500,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LampBillboard (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8155704719390336622, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052888027510608547, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
 --- !u!4 &3105514109552449198 stripped
@@ -454,6 +522,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5080431777571097433}
     m_Modifications:
+    - target: {fileID: 1248250230361239365, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4809384644591148149, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517316869066011975, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7897151461304778827, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -501,6 +581,14 @@ PrefabInstance:
     - target: {fileID: 8155704719390336622, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
       propertyPath: m_Name
       value: LampBillboard (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155704719390336622, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052888027510608547, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd43946e9508e5242a62c7c5e08374ea, type: 3}

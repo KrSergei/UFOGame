@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class UFOController : MonoBehaviour
 {
     public Rigidbody LeftLegRB, RightLegRB;    
-    public UIManager UIManager;
-    public WorldBulder WorldBulder;
+    public GameObject UIManager;
+    public GameObject WorldBulder;
     public UFOAudioControl audioControl;
     public float rotationMultipler = 0.8f;          //Показатель уменьшения силы двигателя при повороте       
     public float MaxAltitude;                       //Максимальная высота, на которой отключаются двигатели
@@ -32,9 +32,7 @@ public class UFOController : MonoBehaviour
     void Start()
     {
         mainRb = GetComponent<Rigidbody>();
-        SceneLoader = FindObjectOfType<SceneLoader>();
-        UIManager = FindObjectOfType<UIManager>();
-        WorldBulder = FindObjectOfType<WorldBulder>();
+        SceneLoader = UIManager.GetComponent<SceneLoader>();        
         audioControl = GetComponent<UFOAudioControl>();
     }
 
@@ -180,12 +178,10 @@ public class UFOController : MonoBehaviour
     {
         return mainRb.velocity.x;
     }
-
     public float GetVelosityY()
     {
         return mainRb.velocity.y;
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -203,7 +199,7 @@ public class UFOController : MonoBehaviour
         if (collision.gameObject.tag == "Finish")
         {
             //Активация метода для загрузки нужного меню
-            UIManager.SetActiveMenuAfterPassedLvl();
+            UIManager.GetComponent<UIManager>().SetActiveMenuAfterPassedLvl();
             //Установка скорости игры в 0
             //WorldBulder.SetSpeedGame(0f);
             WorldBulder.GetComponent<WorldBulder>().SetSpeedGame(0f);
