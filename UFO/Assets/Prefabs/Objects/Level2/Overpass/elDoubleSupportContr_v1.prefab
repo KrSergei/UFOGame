@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 9195677109491818923}
   m_Layer: 0
-  m_Name: elDoubleSupportContr
+  m_Name: elDoubleSupportContr_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9195677109491818923
 Transform:
@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: elLongColumnOverpass (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5347443377037810683, guid: 399cff9c2dcde724e879f363ae0f60dc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 399cff9c2dcde724e879f363ae0f60dc, type: 3}
 --- !u!4 &2541096804972588932 stripped
@@ -160,6 +164,10 @@ PrefabInstance:
     - target: {fileID: 5347443377037810683, guid: 399cff9c2dcde724e879f363ae0f60dc, type: 3}
       propertyPath: m_Name
       value: elLongColumnOverpass
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347443377037810683, guid: 399cff9c2dcde724e879f363ae0f60dc, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 399cff9c2dcde724e879f363ae0f60dc, type: 3}
@@ -235,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: elBigFundamentOverpass (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7208619755984679720, guid: 33eaf431ef77267429f0827830c45ec4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33eaf431ef77267429f0827830c45ec4, type: 3}
 --- !u!4 &8078004851805251248 stripped
@@ -252,6 +264,10 @@ PrefabInstance:
     - target: {fileID: 2700920493161112566, guid: 087d5eac9dd0ed44686ccc49dd24352d, type: 3}
       propertyPath: m_Name
       value: elColumnOverpass (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700920493161112566, guid: 087d5eac9dd0ed44686ccc49dd24352d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5706020953252081429, guid: 087d5eac9dd0ed44686ccc49dd24352d, type: 3}
       propertyPath: m_RootOrder
@@ -383,6 +399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: elBigFundamentOverpass
       objectReference: {fileID: 0}
+    - target: {fileID: 7208619755984679720, guid: 33eaf431ef77267429f0827830c45ec4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33eaf431ef77267429f0827830c45ec4, type: 3}
 --- !u!4 &4183135712979410106 stripped
@@ -400,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 2700920493161112566, guid: 087d5eac9dd0ed44686ccc49dd24352d, type: 3}
       propertyPath: m_Name
       value: elColumnOverpass
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700920493161112566, guid: 087d5eac9dd0ed44686ccc49dd24352d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5706020953252081429, guid: 087d5eac9dd0ed44686ccc49dd24352d, type: 3}
       propertyPath: m_RootOrder
